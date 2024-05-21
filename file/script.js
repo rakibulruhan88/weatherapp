@@ -4,6 +4,8 @@ let searchBtn = document.querySelector(".search button");
 let inputField = document.querySelector(".search input");
 let weatherIcon = document.querySelector(".weather img");
 
+
+
 async function cheakWeather(city) {
   const response = await fetch(apiUrl + city);
   console.log(response);
@@ -31,6 +33,9 @@ async function cheakWeather(city) {
       weatherIcon.src = "/images/wind.png";
     } else if (data.current.condition.text == "Partly cloudy") {
       weatherIcon.src = "/images/cloud.png";
+    }
+     else if (data.current.condition.text == "Clear") {
+      weatherIcon.src = "/images/clear.png";
     }
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".valid").style.display = "none";
